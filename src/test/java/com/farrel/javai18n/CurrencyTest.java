@@ -14,10 +14,10 @@ public class CurrencyTest {
         Locale localeID = new Locale("id", "ID");
         Currency currency = Currency.getInstance(localeID);
 
-        System.out.println("currency.getDisplayName(): " + currency.getDisplayName());
-        System.out.println("currency.getCurrencyCode(): " + currency.getCurrencyCode());
-        System.out.println("currency.getSymbol(localeID): " + currency.getSymbol(localeID));
-        System.out.println("currency.getSymbol(): " + currency.getSymbol());
+        System.out.println("currency.getDisplayName(): " + currency.getDisplayName()); // Indonesian Rupiah
+        System.out.println("currency.getCurrencyCode(): " + currency.getCurrencyCode()); // IDR
+        System.out.println("currency.getSymbol(localeID): " + currency.getSymbol(localeID)); // Rp
+        System.out.println("currency.getSymbol(): " + currency.getSymbol()); // IDR
     }
 
     @Test
@@ -25,10 +25,10 @@ public class CurrencyTest {
         Locale localeUS = new Locale("en", "US");
         Currency currency = Currency.getInstance(localeUS);
 
-        System.out.println("currency.getDisplayName(): " + currency.getDisplayName());
-        System.out.println("currency.getCurrencyCode(): " + currency.getCurrencyCode());
-        System.out.println("currency.getSymbol(localeUS): " + currency.getSymbol(localeUS));
-        System.out.println("currency.getSymbol(): " + currency.getSymbol());
+        System.out.println("currency.getDisplayName(): " + currency.getDisplayName()); // US Dollar
+        System.out.println("currency.getCurrencyCode(): " + currency.getCurrencyCode()); // USD
+        System.out.println("currency.getSymbol(localeUS): " + currency.getSymbol(localeUS)); // $
+        System.out.println("currency.getSymbol(): " + currency.getSymbol()); // $
     }
 
     @Test
@@ -36,10 +36,10 @@ public class CurrencyTest {
         Locale localeJP = new Locale("ja", "JP");
         Currency currency = Currency.getInstance(localeJP);
 
-        System.out.println("currency.getDisplayName(): " + currency.getDisplayName());
-        System.out.println("currency.getCurrencyCode(): " + currency.getCurrencyCode());
-        System.out.println("currency.getSymbol(localeJP): " + currency.getSymbol(localeJP));
-        System.out.println("currency.getSymbol(): " + currency.getSymbol());
+        System.out.println("currency.getDisplayName(): " + currency.getDisplayName()); // Japanese Yen
+        System.out.println("currency.getCurrencyCode(): " + currency.getCurrencyCode()); // JPY
+        System.out.println("currency.getSymbol(localeJP): " + currency.getSymbol(localeJP)); // ￥
+        System.out.println("currency.getSymbol(): " + currency.getSymbol()); // ¥
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CurrencyTest {
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance(localeID);
 
         String format = numberFormat.format(1000000.456);
-        System.out.println(format);
+        System.out.println(format); // Rp1.000.000,46
     }
 
     @Test
@@ -58,10 +58,10 @@ public class CurrencyTest {
 
         try {
             Number result = numberFormat.parse("Rp1.000.000,46");
-            System.out.println(result);
+            System.out.println(result); // 1000000.46
 
             double resultDouble = result.doubleValue();
-            System.out.println(resultDouble);
+            System.out.println(resultDouble); // 1000000.46
 
         } catch (ParseException e) {
             //throw new RuntimeException(e);
